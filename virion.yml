@@ -1,0 +1,8 @@
+name: libmysql
+api: 4.0.0
+author: VixikHD
+description: Library with MySQL Api methods used by HappyBedrock
+version: 1.0.0
+antigen: happype\openapi\libmysql
+
+php: [8.0]
