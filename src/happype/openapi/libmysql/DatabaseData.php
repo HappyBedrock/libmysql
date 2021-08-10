@@ -6,8 +6,7 @@ namespace happype\openapi\libmysql;
 
 use happype\openapi\libmysql\query\ConnectQuery;
 use happype\openapi\libmysql\utils\ConnectData;
-use happype\openapi\libmysql\utils\FetchTableList;
-use happype\openapi\libmysql\utils\SerializedArrayObject;
+use happype\openapi\libmysql\utils\TableList;
 
 class DatabaseData {
 
@@ -16,22 +15,22 @@ class DatabaseData {
     /** @var ConnectData */
     private static ConnectData $connectData;
 
-    private static SerializedArrayObject $initTableList;
-    private static FetchTableList $fetchTableList;
+    private static TableList $initTableList;
+    private static TableList $fetchTableList;
 
-    public static function register(ConnectData $connectData, array $tablesToInit = [], ?FetchTableList $fetchTableList = null): void {
+    public static function register(ConnectData $connectData, ?TableList $tablesToInit = null, ?TableList $fetchTableList = null): void {
         self::$connectData = $connectData;
-        self::$initTableList = new SerializedArrayObject($tablesToInit);
-        self::$fetchTableList = $fetchTableList ?? new FetchTableList();
+        self::$initTableList = $tablesToInit ?? new TableList();
+        self::$fetchTableList = $fetchTableList ?? new TableList();
 
         QueryQueue::submitQuery(new ConnectQuery());
     }
 
-    public static function getInitTableList(): SerializedArrayObject {
+    public static function getInitTableList(): TableList {
         return self::$initTableList;
     }
 
-    public static function getFetchTableList(): FetchTableList {
+    public static function getFetchTableList(): TableList {
         return self::$fetchTableList;
     }
 

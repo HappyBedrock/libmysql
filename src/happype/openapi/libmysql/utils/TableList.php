@@ -6,7 +6,7 @@ namespace happype\openapi\libmysql\utils;
 
 use happype\openapi\libmysql\condition\SearchCondition;
 
-class FetchTableList {
+class TableList {
 
     private SerializedArrayObject $tables;
 
