@@ -19,7 +19,7 @@ class DatabaseData {
     private static TableList $initTableList;
     private static FetchTableList $fetchTableList;
 
-    public static function register(ConnectData $connectData, ?TableList $tablesToInit = null, ?TableList $fetchTableList = null): void {
+    public static function register(ConnectData $connectData, ?TableList $tablesToInit = null, ?FetchTableList $fetchTableList = null): void {
         self::$connectData = $connectData;
         self::$initTableList = $tablesToInit ?? new TableList();
         self::$fetchTableList = $fetchTableList ?? new FetchTableList();
