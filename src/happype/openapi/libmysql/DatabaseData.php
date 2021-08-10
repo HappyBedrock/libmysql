@@ -6,6 +6,7 @@ namespace happype\openapi\libmysql;
 
 use happype\openapi\libmysql\query\ConnectQuery;
 use happype\openapi\libmysql\utils\ConnectData;
+use happype\openapi\libmysql\utils\FetchTableList;
 use happype\openapi\libmysql\utils\TableList;
 
 class DatabaseData {
@@ -16,12 +17,12 @@ class DatabaseData {
     private static ConnectData $connectData;
 
     private static TableList $initTableList;
-    private static TableList $fetchTableList;
+    private static FetchTableList $fetchTableList;
 
     public static function register(ConnectData $connectData, ?TableList $tablesToInit = null, ?TableList $fetchTableList = null): void {
         self::$connectData = $connectData;
         self::$initTableList = $tablesToInit ?? new TableList();
-        self::$fetchTableList = $fetchTableList ?? new TableList();
+        self::$fetchTableList = $fetchTableList ?? new FetchTableList();
 
         QueryQueue::submitQuery(new ConnectQuery());
     }
@@ -30,7 +31,7 @@ class DatabaseData {
         return self::$initTableList;
     }
 
-    public static function getFetchTableList(): TableList {
+    public static function getFetchTableList(): FetchTableList {
         return self::$fetchTableList;
     }
 
