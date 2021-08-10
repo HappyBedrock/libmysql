@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace happype\openapi\libmysql;
 
-use happype\openapi\libmysql\query\base\ConnectQuery;
+use happype\openapi\libmysql\query\ConnectQuery;
 use happype\openapi\libmysql\utils\ConnectData;
 use happype\openapi\libmysql\utils\FetchTableList;
 use happype\openapi\libmysql\utils\SerializedArrayObject;
@@ -27,16 +27,10 @@ class DatabaseData {
         QueryQueue::submitQuery(new ConnectQuery());
     }
 
-    /**
-     * @internal
-     */
     public static function getInitTableList(): SerializedArrayObject {
         return self::$initTableList;
     }
 
-    /**
-     * @internal
-     */
     public static function getFetchTableList(): FetchTableList {
         return self::$fetchTableList;
     }

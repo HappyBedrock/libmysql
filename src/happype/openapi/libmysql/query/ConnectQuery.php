@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace happype\openapi\libmysql\query\base;
+namespace happype\openapi\libmysql\query;
 
 use happype\openapi\libmysql\AsyncQuery;
 use mysqli;

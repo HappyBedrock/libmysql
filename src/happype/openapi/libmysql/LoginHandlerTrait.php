@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace happype\openapi\libmysql;
 
 use happype\openapi\libmysql\event\PlayerLoginQueryReceiveEvent;
-use happype\openapi\libmysql\query\player\LazyRegisterQuery;
+use happype\openapi\libmysql\query\LazyRegisterQuery;
 use pocketmine\event\player\PlayerLoginEvent;
 
 trait LoginHandlerTrait {

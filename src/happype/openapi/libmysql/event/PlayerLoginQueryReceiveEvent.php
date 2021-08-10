@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace happype\openapi\libmysql\event;
 
-use happype\openapi\libmysql\query\player\LazyRegisterQuery;
+use happype\openapi\libmysql\query\LazyRegisterQuery;
 use pocketmine\event\Event;
 use pocketmine\player\Player;
 
