@@ -17,7 +17,7 @@ class LazyRegisterQuery extends AsyncQuery {
     public SerializedArrayObject $tableList;
 
     /**
-     * @param TableList $initList Array with tables, whose needs to have player inside of them
+     * @param TableList $initList Array with tables whose need to be init once player joins the server first time
      * @param FetchTableList $fetchTableList Table list which is needed to read all data for specific condition on player join
      */
     public function __construct(
