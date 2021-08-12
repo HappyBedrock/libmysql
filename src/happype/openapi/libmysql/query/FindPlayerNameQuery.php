@@ -18,7 +18,7 @@ class FindPlayerNameQuery extends AsyncQuery {
 	) {}
 
 	public function query(mysqli $mysqli): void {
-		$result = $mysqli->query("SELECT * HB_Values WHERE Name='$this->player';");
+		$result = $mysqli->query("SELECT * FROM HB_Values WHERE Name='$this->player';");
 		if(!$result instanceof mysqli_result) {
 			return;
 		}
