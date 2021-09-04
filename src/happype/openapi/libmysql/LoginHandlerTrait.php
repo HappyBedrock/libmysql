@@ -19,7 +19,7 @@ trait LoginHandlerTrait {
     public function onLogin(PlayerLoginEvent $event): void {
         QueryQueue::submitQuery(new LazyRegisterQuery($event->getPlayer()->getName(), DatabaseData::getInitTableList(), DatabaseData::getFetchTableList()), function (LazyRegisterQuery $query) use ($event): void {
             (new PlayerLoginQueryReceiveEvent($event->getPlayer(), $query))->call();
-            if($event->getPlayer()->spawned) {
+            if($event->getPlayer()->isConnected()) {
 	            (new InitializedPlayerJoinEvent($event->getPlayer()))->call();
 	            return;
             }
