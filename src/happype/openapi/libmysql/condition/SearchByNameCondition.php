@@ -6,11 +6,12 @@ namespace happype\openapi\libmysql\condition;
 
 class SearchByNameCondition implements SearchCondition {
 
-    public function __construct(
-        private string $name
-    ) {}
+	public function __construct(
+		private string $name
+	) {
+	}
 
-    public function emit(): string {
-        return "Name='$this->name'";
-    }
+	public function emit(): string {
+		return "Name='$this->name'";
+	}
 }

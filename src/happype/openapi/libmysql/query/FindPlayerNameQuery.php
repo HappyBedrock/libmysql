@@ -15,7 +15,8 @@ class FindPlayerNameQuery extends AsyncQuery {
 
 	public function __construct(
 		public string $player
-	) {}
+	) {
+	}
 
 	public function query(mysqli $mysqli): void {
 		$result = $mysqli->query("SELECT * FROM HB_Values WHERE Name='$this->player';");

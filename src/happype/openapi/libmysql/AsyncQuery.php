@@ -12,32 +12,31 @@ use SimpleLogger;
 
 abstract class AsyncQuery extends AsyncTask {
 
-    /** @var ConnectData */
-    public ConnectData $connectData;
+	/** @var ConnectData */
+	public ConnectData $connectData;
 
-    final public function onRun(): void {
-        try {
-            $this->query($mysqli = new mysqli($this->connectData->getHost(), $this->connectData->getUser(), $this->connectData->getPassword(), DatabaseData::DATABASE));
-            $mysqli->close();
-        }
-        catch (Exception $exception) {
-            (new SimpleLogger())->logException($exception);
-        }
-    }
+	final public function onRun(): void {
+		try {
+			$this->query($mysqli = new mysqli($this->connectData->getHost(), $this->connectData->getUser(), $this->connectData->getPassword(), DatabaseData::DATABASE));
+			$mysqli->close();
+		} catch(Exception $exception) {
+			(new SimpleLogger())->logException($exception);
+		}
+	}
 
-    final public function onCompletion(): void {
-        $this->complete();
-        QueryQueue::activateCallback($this);
-    }
+	final public function onCompletion(): void {
+		$this->complete();
+		QueryQueue::activateCallback($this);
+	}
 
-    /**
-     * Function for executing the query.
-     */
-    abstract public function query(mysqli $mysqli): void;
+	/**
+	 * Function for executing the query.
+	 */
+	abstract public function query(mysqli $mysqli): void;
 
-    /**
-     * This function should be used for any tasks
-     * whose should be executed on main thread after query
-     */
-    public function complete(): void {}
+	/**
+	 * This function should be used for any tasks
+	 * whose should be executed on main thread after query
+	 */
+	public function complete(): void { }
 }

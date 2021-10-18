@@ -14,9 +14,9 @@ class Utils {
 	 * @param Closure(bool, string): void $callback Closure(bool $isRegistered, string $realName): void {}
 	 */
 	public static function isPlayerRegistered(string $name, Closure $callback): void {
-		\pocketmine\utils\Utils::validateCallableSignature(function (bool $isRegistered, string $name): void {}, $callback);
+		\pocketmine\utils\Utils::validateCallableSignature(function(bool $isRegistered, string $name): void { }, $callback);
 
-		QueryQueue::submitQuery(new FindPlayerNameQuery($name), function (FindPlayerNameQuery $query) use ($callback, $name): void {
+		QueryQueue::submitQuery(new FindPlayerNameQuery($name), function(FindPlayerNameQuery $query) use ($callback, $name): void {
 			if(!$query->found) {
 				$callback(false, $name);
 				return;

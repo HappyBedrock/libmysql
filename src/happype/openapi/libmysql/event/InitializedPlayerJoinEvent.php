@@ -11,7 +11,8 @@ class InitializedPlayerJoinEvent extends Event {
 
 	public function __construct(
 		protected Player $player
-	) {}
+	) {
+	}
 
 	public function getPlayer(): Player {
 		return $this->player;

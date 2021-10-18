@@ -9,10 +9,10 @@ use mysqli;
 
 class ConnectQuery extends AsyncQuery {
 
-    /** @var bool */
-    public bool $connected = false;
+	/** @var bool */
+	public bool $connected = false;
 
-    public function query(mysqli $mysqli): void {
-        $this->connected = true;
-    }
+	public function query(mysqli $mysqli): void {
+		$this->connected = true;
+	}
 }

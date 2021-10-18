@@ -9,20 +9,20 @@ use function unserialize;
 
 class SerializedArrayObject {
 
-    /** @var string */
-    protected string $value;
+	/** @var string */
+	protected string $value;
 
-    /**
-     * @param mixed[] $value
-     */
-    public function __construct(array $value = []) {
-        $this->value = serialize($value);
-    }
+	/**
+	 * @param mixed[] $value
+	 */
+	public function __construct(array $value = []) {
+		$this->value = serialize($value);
+	}
 
-    /**
-     * @return mixed[]
-     */
-    public function getValue(): array {
-        return (array) unserialize($this->value);
-    }
+	/**
+	 * @return mixed[]
+	 */
+	public function getValue(): array {
+		return (array)unserialize($this->value);
+	}
 }

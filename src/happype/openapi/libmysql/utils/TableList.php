@@ -6,25 +6,25 @@ namespace happype\openapi\libmysql\utils;
 
 class TableList {
 
-    private SerializedArrayObject $tables;
+	private SerializedArrayObject $tables;
 
-    public function __construct() {
-        $this->tables = new SerializedArrayObject();
-    }
+	public function __construct() {
+		$this->tables = new SerializedArrayObject();
+	}
 
-    /**
-     * @return $this
-     */
-    public function addTable(string $table): self {
-        $oldArray = $this->tables->getValue();
-        $oldArray[] = $table;
+	/**
+	 * @return $this
+	 */
+	public function addTable(string $table): self {
+		$oldArray = $this->tables->getValue();
+		$oldArray[] = $table;
 
-        $this->tables = new SerializedArrayObject($oldArray);
+		$this->tables = new SerializedArrayObject($oldArray);
 
-        return $this;
-    }
+		return $this;
+	}
 
-    public function getTables(): SerializedArrayObject {
-        return $this->tables;
-    }
+	public function getTables(): SerializedArrayObject {
+		return $this->tables;
+	}
 }

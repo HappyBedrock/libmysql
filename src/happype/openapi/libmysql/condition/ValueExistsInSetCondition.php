@@ -9,9 +9,10 @@ class ValueExistsInSetCondition implements SearchCondition {
 	public function __construct(
 		public string $value,
 		public string $column
-	) {}
+	) {
+	}
 
 	public function emit(): string {
-		return "FIND_IN_SET('$this->value', $this->column)'";
+		return "FIND_IN_SET('$this->value', '$this->column')";
 	}
 }

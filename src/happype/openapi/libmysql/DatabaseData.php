@@ -11,31 +11,31 @@ use happype\openapi\libmysql\utils\TableList;
 
 class DatabaseData {
 
-    public const DATABASE = "HappyBedrock";
+	public const DATABASE = "HappyBedrock";
 
-    /** @var ConnectData */
-    private static ConnectData $connectData;
+	/** @var ConnectData */
+	private static ConnectData $connectData;
 
-    private static TableList $initTableList;
-    private static FetchTableList $fetchTableList;
+	private static TableList $initTableList;
+	private static FetchTableList $fetchTableList;
 
-    public static function init(ConnectData $connectData, ?TableList $tablesToInit = null, ?FetchTableList $fetchTableList = null): void {
-        self::$connectData = $connectData;
-        self::$initTableList = $tablesToInit ?? new TableList();
-        self::$fetchTableList = $fetchTableList ?? new FetchTableList();
+	public static function init(ConnectData $connectData, ?TableList $tablesToInit = null, ?FetchTableList $fetchTableList = null): void {
+		self::$connectData = $connectData;
+		self::$initTableList = $tablesToInit ?? new TableList();
+		self::$fetchTableList = $fetchTableList ?? new FetchTableList();
 
-        QueryQueue::submitQuery(new ConnectQuery());
-    }
+		QueryQueue::submitQuery(new ConnectQuery());
+	}
 
-    public static function getInitTableList(): TableList {
-        return self::$initTableList;
-    }
+	public static function getInitTableList(): TableList {
+		return self::$initTableList;
+	}
 
-    public static function getFetchTableList(): FetchTableList {
-        return self::$fetchTableList;
-    }
+	public static function getFetchTableList(): FetchTableList {
+		return self::$fetchTableList;
+	}
 
-    public static function getConnectData(): ConnectData {
-        return self::$connectData;
-    }
+	public static function getConnectData(): ConnectData {
+		return self::$connectData;
+	}
 }
