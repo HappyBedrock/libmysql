@@ -13,6 +13,6 @@ class ValueExistsInSetCondition implements SearchCondition {
 	}
 
 	public function emit(): string {
-		return "FIND_IN_SET('$this->value', '$this->column')";
+		return "FIND_IN_SET('$this->value', $this->column)";
 	}
 }
