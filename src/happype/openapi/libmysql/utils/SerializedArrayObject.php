@@ -10,19 +10,19 @@ use function unserialize;
 class SerializedArrayObject {
 
 	/** @var string */
-	protected string $value;
+	protected string $arrayValue;
 
 	/**
 	 * @param mixed[] $value
 	 */
 	public function __construct(array $value = []) {
-		$this->value = serialize($value);
+		$this->arrayValue = serialize($value);
 	}
 
 	/**
 	 * @return mixed[]
 	 */
 	public function getValue(): array {
-		return (array)unserialize($this->value);
+		return (array)unserialize($this->arrayValue);
 	}
 }
