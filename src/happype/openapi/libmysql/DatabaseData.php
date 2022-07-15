@@ -11,8 +11,6 @@ use happype\openapi\libmysql\utils\TableList;
 
 class DatabaseData {
 
-	public const DATABASE = "HappyBedrock";
-
 	/** @var ConnectData */
 	private static ConnectData $connectData;
 

@@ -8,8 +8,6 @@ use function array_values;
 use function implode;
 
 class UpdateData {
-
-	/** @var SerializedArrayObject */
 	private SerializedArrayObject $updates;
 
 	/**

@@ -8,8 +8,6 @@ use function serialize;
 use function unserialize;
 
 class SerializedArrayObject {
-
-	/** @var string */
 	protected string $arrayValue;
 
 	/**

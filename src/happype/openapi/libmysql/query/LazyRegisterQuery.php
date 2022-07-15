@@ -13,7 +13,6 @@ use mysqli_result;
 use function str_replace;
 
 class LazyRegisterQuery extends AsyncQuery {
-
 	public SerializedArrayObject $tableList;
 
 	/**

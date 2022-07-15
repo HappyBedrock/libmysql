@@ -9,12 +9,10 @@ use pocketmine\event\Event;
 use pocketmine\player\Player;
 
 class PlayerLoginQueryReceiveEvent extends Event {
-
 	public function __construct(
 		public Player $player,
 		public LazyRegisterQuery $query
-	) {
-	}
+	) {}
 
 	public function getPlayer(): Player {
 		return $this->player;

@@ -12,7 +12,6 @@ use pocketmine\event\player\PlayerLoginEvent;
 use function array_key_exists;
 
 trait LoginHandlerTrait {
-
 	/** @var bool[] */
 	protected array $initializedPlayers = [];
 

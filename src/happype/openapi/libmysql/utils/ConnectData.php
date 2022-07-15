@@ -5,20 +5,12 @@ declare(strict_types=1);
 namespace happype\openapi\libmysql\utils;
 
 class ConnectData {
-
-	/** @var string */
-	private string $host;
-
-	/** @var string */
-	private string $user;
-	/** @var string */
-	private string $password;
-
-	public function __construct(string $host, string $user, string $password) {
-		$this->host = $host;
-		$this->user = $user;
-		$this->password = $password;
-	}
+	public function __construct(
+		private string $host,
+		protected string $user,
+		private string $password,
+		private string $database = "HappyBedrock"
+	) {}
 
 	public function getHost(): string {
 		return $this->host;
@@ -30,5 +22,9 @@ class ConnectData {
 
 	public function getPassword(): string {
 		return $this->password;
+	}
+
+	public function getDatabase(): string {
+		return $this->database;
 	}
 }

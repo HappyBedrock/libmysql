@@ -7,7 +7,6 @@ namespace happype\openapi\libmysql\utils;
 use happype\openapi\libmysql\condition\SearchCondition;
 
 class FetchTableList {
-
 	private SerializedArrayObject $tables;
 
 	public function __construct() {

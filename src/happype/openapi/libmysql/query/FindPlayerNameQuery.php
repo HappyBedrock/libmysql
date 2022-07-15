@@ -10,13 +10,11 @@ use mysqli_result;
 use function array_key_exists;
 
 class FindPlayerNameQuery extends AsyncQuery {
-
 	public bool $found = false;
 
 	public function __construct(
 		public string $player
-	) {
-	}
+	) {}
 
 	public function query(mysqli $mysqli): void {
 		$result = $mysqli->query("SELECT * FROM HB_Values WHERE Name='$this->player';");

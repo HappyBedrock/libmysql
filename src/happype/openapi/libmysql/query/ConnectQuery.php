@@ -8,8 +8,6 @@ use happype\openapi\libmysql\AsyncQuery;
 use mysqli;
 
 class ConnectQuery extends AsyncQuery {
-
-	/** @var bool */
 	public bool $connected = false;
 
 	public function query(mysqli $mysqli): void {

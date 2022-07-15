@@ -9,7 +9,6 @@ use happype\openapi\libmysql\query\FindPlayerNameQuery;
 use happype\openapi\libmysql\QueryQueue;
 
 class Utils {
-
 	/**
 	 * @param Closure(bool, string): void $callback Closure(bool $isRegistered, string $realName): void {}
 	 */

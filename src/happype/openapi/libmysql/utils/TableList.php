@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace happype\openapi\libmysql\utils;
 
 class TableList {
-
 	private SerializedArrayObject $tables;
 
 	public function __construct() {

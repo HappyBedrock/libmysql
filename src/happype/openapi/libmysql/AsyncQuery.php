@@ -11,13 +11,11 @@ use pocketmine\scheduler\AsyncTask;
 use SimpleLogger;
 
 abstract class AsyncQuery extends AsyncTask {
-
-	/** @var ConnectData */
 	public ConnectData $connectData;
 
 	final public function onRun(): void {
 		try {
-			$this->query($mysqli = new mysqli($this->connectData->getHost(), $this->connectData->getUser(), $this->connectData->getPassword(), DatabaseData::DATABASE));
+			$this->query($mysqli = new mysqli($this->connectData->getHost(), $this->connectData->getUser(), $this->connectData->getPassword(), $this->connectData->getDatabase()));
 			$mysqli->close();
 		} catch(Exception $exception) {
 			(new SimpleLogger())->logException($exception);
